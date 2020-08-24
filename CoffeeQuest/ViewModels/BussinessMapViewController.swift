@@ -28,8 +28,9 @@
 
 import Foundation
 import MapKit
+import UIKit
 
-public class MapPin: NSObject {
+public class BussinessMapViewController: NSObject {
   
   // MARK: - Properties
   public let coordinate: CLLocationCoordinate2D
@@ -47,7 +48,7 @@ public class MapPin: NSObject {
 }
 
 // MARK: - MKAnnotation
-extension MapPin: MKAnnotation {
+extension BussinessMapViewController: MKAnnotation {
   
   public var title: String? {
     return name
