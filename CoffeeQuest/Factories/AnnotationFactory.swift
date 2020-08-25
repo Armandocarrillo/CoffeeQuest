@@ -32,14 +32,14 @@ import YelpAPI
 
 public class AnnotationFactory {
   
-  public func createBussinessMapViewModel(for bussiness: YLPBusiness) -> BussinessMapViewModel? {
+  public func createBussinessMapViewModel(for business: Business) -> BussinessMapViewModel? {
       
-    guard let yelpCoordinate = bussiness.location.coordinate else  { return nil  }
+    /*guard let yelpCoordinate = business.location.coordinate else  { return nil  }
   
-    let coodinate = CLLocationCoordinate2D(latitude: yelpCoordinate.latitude, longitude: yelpCoordinate.longitude)
+    let coodinate = CLLocationCoordinate2D(latitude: yelpCoordinate.latitude, longitude: yelpCoordinate.longitude)*/
     
-    let name = bussiness.name
-    let rating = bussiness.rating
+    let name = business.name
+    let rating = business.rating
     let image: UIImage
     switch rating {
     case 0.0..<3.0:
@@ -55,6 +55,6 @@ public class AnnotationFactory {
     default:
       image = UIImage(named: "bad")!
     }
-    return BussinessMapViewModel(coordinate: coodinate, name: name, rating: rating, image: image)
+    return BussinessMapViewModel(coordinate: business.location, name: name, rating: rating, image: image)
   }
 }
